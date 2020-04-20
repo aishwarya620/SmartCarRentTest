@@ -1,0 +1,10 @@
+#### IDE
+**/.idea
+**/.iml
+
+#### build files
+**/target
+**/.gradle
+**/build
+**/out
+**/bin
