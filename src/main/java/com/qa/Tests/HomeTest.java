@@ -9,22 +9,16 @@ public class HomeTest extends BasePage {
 
     @BeforeClass
     public void beforeClass(){
-
-
     }
     @AfterClass
     public void afterClass(){
-
     }
     @BeforeMethod
     public void beforeMethod(){
-
         homePage = new HomePage();
-
     }
     @AfterMethod
     public void afterMethod(){
-
     }
     @Test
     public void shouldPressSignUp(){

@@ -7,13 +7,13 @@ public class HomePage extends BasePage{
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSignUp") private MobileElement signUp;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSignIn") private MobileElement signIn;
 
-    public HomePage(MobileElement signUp) {
+    /*public HomePage(MobileElement signUp) {
         this.signUp = signUp;
-    }
+    }*/
 
-    public HomePage() {
+    /*public HomePage() {
 
-    }
+    }*/
     public RegistrationPage pressSignUpButton(){
         signUp.click();
         return new RegistrationPage();
