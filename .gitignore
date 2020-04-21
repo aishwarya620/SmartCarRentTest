@@ -1,2 +1,10 @@
-.idea
-*.iml
+#### IDE
+**/.idea
+**/.iml
+
+#### build files
+**/target
+**/.gradle
+**/build
+**/out
+**/bin

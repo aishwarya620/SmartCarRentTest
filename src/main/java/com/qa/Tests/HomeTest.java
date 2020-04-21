@@ -1,31 +1,18 @@
 package com.qa.Tests;
 
-import com.qa.Pages.BasePage;
 import com.qa.Pages.HomePage;
-import org.testng.annotations.*;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import org.testng.annotations.Test;
 
-public class HomeTest extends BasePage {
-    HomePage homePage;
+import java.net.MalformedURLException;
 
-    @BeforeClass
-    public void beforeClass(){
-    }
-    @AfterClass
-    public void afterClass(){
-    }
-    @BeforeMethod
-    public void beforeMethod(){
-        homePage = new HomePage();
-    }
-    @AfterMethod
-    public void afterMethod(){
-    }
+public class HomeTest extends HomePage {
+    HomePage homePage = new HomePage();
+
     @Test
-    public void shouldPressSignUp(){
-        homePage.pressSignUpButton();
-    }
-    @Test
-    public void shouldPressSignIn(){
-        homePage.pressSignInButton();
+    public void shouldLaunchApp() throws MalformedURLException {
+        homePage.setDriver((AndroidDriver) driver);
+
     }
 }
