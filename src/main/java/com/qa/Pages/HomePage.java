@@ -16,10 +16,13 @@ public class HomePage {
     }
     public RegistrationPage pressSignUpButton(){
         signUp.click();
-        return new RegistrationPage();
+        return new RegistrationPage(driver);
     }
     public LoginPage pressSignInButton(){
         signIn.click();
         return new LoginPage();
+    }
+    public void sendKeys(MobileElement element, String txt){
+        element.sendKeys(txt);
     }
 }
