@@ -1,29 +1,25 @@
 package com.qa.Pages;
 
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends page {
+public class HomePage {
+    protected static AppiumDriver driver;
+    @AndroidFindBy(id = "com.example.cc14.smartcarrent:id/btnSignUp") public MobileElement signUp;
+    @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSignIn") public MobileElement signIn;
 
-    public AndroidDriver getDriver() {
-        return this.androidDriver;
+    public HomePage(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
-    public void setDriver(AndroidDriver androidDriver) throws MalformedURLException {
-        //this.androidDriver = androidDriver;
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("deviceName", "RZ8M7442VWR");
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "9.0");
-        caps.setCapability("appPackage", "com.example.cc14.smartcarrent");
-        caps.setCapability("appActivity", "com.example.cc14.smartcarrent.SplashScreenActivity");
-        caps.setCapability("app","/home/hp/Desktop/SmartApp/app/release/app-release.apk");
-        androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-        androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    public RegistrationPage pressSignUpButton(){
+        signUp.click();
+        return new RegistrationPage();
     }
-    public void quitDriver() {
-        androidDriver.quit();
+    public LoginPage pressSignInButton(){
+        signIn.click();
+        return new LoginPage();
     }
 }
