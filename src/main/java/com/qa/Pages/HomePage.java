@@ -16,7 +16,7 @@ public class HomePage {
     }
     public RegistrationPage pressSignUpButton(){
         signUp.click();
-        return new RegistrationPage(driver);
+        return new RegistrationPage();
     }
     public LoginPage pressSignInButton(){
         signIn.click();
