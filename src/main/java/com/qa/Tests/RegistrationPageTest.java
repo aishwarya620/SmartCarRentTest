@@ -1,11 +1,9 @@
 package com.qa.Tests;
 
-import com.github.javafaker.Faker;
 import com.qa.Pages.HomePage;
 import com.qa.Pages.RegistrationPage;
 import com.qa.TestBase;
 import io.appium.java_client.AppiumDriver;
-import org.apache.commons.lang.RandomStringUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,11 +18,11 @@ public class RegistrationPageTest extends TestBase {
     }
 
     @Test
-    public void shouldRegisteredSucessfully() {
+    public void shouldRegisteredSuccessfully() {
         homePage = new HomePage(driver);
         registrationPage = homePage.pressSignUpButton();
         registrationPage = new RegistrationPage(driver);
         registrationPage.randomData();
-
     }
+
 }

@@ -1,15 +1,12 @@
 package com.qa.Pages;
 
-import com.github.javafaker.Faker;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.commons.lang.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-
-import java.security.SecureRandom;
-import java.util.Random;
 
 public class RegistrationPage {
     protected static AppiumDriver driver;
@@ -22,9 +19,11 @@ public class RegistrationPage {
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/etCity") public MobileElement city;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/etPincode") public MobileElement pinCode;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/etWallet") public MobileElement wallet;
-    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioSex") public MobileElement radioSex;
+    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioMale") public MobileElement radioMale;
+    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioFemale") public MobileElement radioFemale;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/etLicenceNo") public MobileElement licenceNo;
-    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioTypeUser") public  MobileElement radioTypeUser;
+    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioUser") public  MobileElement radioTypeUser;
+    @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioOwner") public MobileElement radioTypeOwner;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSubmit") public MobileElement submit;
 
     public RegistrationPage(){
@@ -52,13 +51,28 @@ public class RegistrationPage {
         sendKeys(password,password1);
         return this;
     }
-
     public RegistrationPage enterConfirmPassword(String password1){
         sendKeys(confirmPassword,password1);
         return this;
     }
+    public RegistrationPage enterCity(String city1) {
+        sendKeys(city,city1);
+        return this;
+    }
+    public RegistrationPage enterPinCode(String pincode1){
+        sendKeys(pinCode,pincode1);
+        return this;
+    }
+    public RegistrationPage enterWalletBalance(String walletBalance1){
+        sendKeys(wallet,walletBalance1);
+        return this;
+    }
+    public RegistrationPage enterLicenceNo(String licenceNo1){
+        sendKeys(licenceNo,licenceNo1);
+        return this;
+    }
     public void randomData(){
-        String firstName = RandomStringUtils.randomAlphanumeric(10);
+        String firstName = RandomStringUtils.randomAlphabetic(5);
         enterName(firstName);
 
         String email1  = firstName.toLowerCase() + "@gmail.com";
@@ -70,7 +84,33 @@ public class RegistrationPage {
         String password1 = RandomStringUtils.randomAlphanumeric(10);
         enterPassword(password1);
         enterConfirmPassword(password1);
+
+        String city1 = RandomStringUtils.randomAlphabetic(5);
+        enterCity(city1);
+
+        String pinCode1 = RandomStringUtils.randomNumeric(6);
+        enterPinCode(pinCode1);
+
+        String walletBalance1 = RandomStringUtils.randomNumeric(4);
+        enterWalletBalance(walletBalance1);
+
+        int min=0,max=1;
+        int num = (int) (Math.random() * (max - min + 1) + min);
+        if(num == 0)
+            radioMale.click();
+        else
+            radioFemale.click();
+
+        String licenceNo1 =RandomStringUtils.randomNumeric(15);
+        enterLicenceNo(licenceNo1);
+
+        int min1=0,max1=1;
+        int num1 = (int) (Math.random() * (max1 - min1 + 1) + min1);
+        if(num1 == 0)
+            radioTypeUser.click();
+        else
+            radioTypeOwner.click();
+
+        submit.click();
     }
-
-
 }
