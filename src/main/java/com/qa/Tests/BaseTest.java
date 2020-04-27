@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class BaseTest extends TestBase {
-    protected static AppiumDriver driver ;
     HomePage homePage;
 
     @BeforeClass

@@ -1,23 +1,25 @@
-package com.qa;
+package com.qa.Common;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class TestBase  {
-    protected static AppiumDriver driver;
+public class DriverFactory {
+    public static AppiumDriver driver;
+    private  DriverFactory(){
 
-    public AppiumDriver getDriver(){
+    }
+    public static AppiumDriver getDriver() throws MalformedURLException {
+        if(driver == null){
+            driver = createDriver();
+        }
         return driver;
     }
-    @BeforeTest
-    public void setup() throws Exception {
+    private static AppiumDriver createDriver() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("deviceName", "RZ8M7442VWR");
         caps.setCapability("platformName", "Android");
@@ -27,9 +29,6 @@ public class TestBase  {
         caps.setCapability("app","/home/hp/Desktop/SmartApp/app/release/app-release.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-    @AfterTest
-    public void quitDriver() {
-        driver.quit();
+        return  driver;
     }
 }

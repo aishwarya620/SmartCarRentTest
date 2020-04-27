@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends TestBase {
-    protected static AppiumDriver driver ;
     RegistrationPage registrationPage;
     LoginPage loginPage;
     HomePage homePage;

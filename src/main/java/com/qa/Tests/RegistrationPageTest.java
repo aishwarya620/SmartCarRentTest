@@ -24,5 +24,4 @@ public class RegistrationPageTest extends TestBase {
         registrationPage = new RegistrationPage(driver);
         registrationPage.randomData();
     }
-
 }
