@@ -9,8 +9,7 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationPage {
-    protected static AppiumDriver driver;
+public class RegistrationPage extends BasePage{
 
     @AndroidFindBy(id = "com.example.cc14.smartcarrent:id/etName") public MobileElement name;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/etEmail_id") public MobileElement emailId;
@@ -27,10 +26,9 @@ public class RegistrationPage {
     @AndroidFindBy (id ="com.example.cc14.smartcarrent:id/radioOwner") public MobileElement radioTypeOwner;
     @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSubmit") public MobileElement submit;
 
-    public RegistrationPage(){
 
-    }
     public RegistrationPage(AppiumDriver driver){
+        super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
     public void sendKeys(MobileElement element, String txt){
@@ -115,4 +113,5 @@ public class RegistrationPage {
         submit.click();
     }
 }
+
 

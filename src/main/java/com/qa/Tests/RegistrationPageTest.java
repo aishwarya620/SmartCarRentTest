@@ -1,3 +1,4 @@
+
 package com.qa.Tests;
 
 import com.qa.Pages.HomePage;
@@ -7,7 +8,7 @@ import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class RegistrationPageTest extends TestBase {
+public class RegistrationPageTest extends HomePageTest {
     protected static AppiumDriver driver ;
     RegistrationPage registrationPage;
     HomePage homePage;
@@ -24,4 +25,5 @@ public class RegistrationPageTest extends TestBase {
         registrationPage = new RegistrationPage(driver);
         registrationPage.randomData();
     }
+
 }

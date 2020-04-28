@@ -1,3 +1,5 @@
+
+
 package com.qa.Tests;
 
 import com.qa.Pages.HomePage;
@@ -9,6 +11,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends TestBase {
+    protected static AppiumDriver driver ;
     RegistrationPage registrationPage;
     LoginPage loginPage;
     HomePage homePage;
@@ -22,9 +25,9 @@ public class HomePageTest extends TestBase {
         homePage = new HomePage(driver);
         registrationPage = homePage.pressSignUpButton();
     }
-    @Test
+   /* @Test
     public void shouldClickOnSignInButton() {
         homePage = new HomePage(driver);
         loginPage = homePage.pressSignInButton();
-    }
+    }*/
 }

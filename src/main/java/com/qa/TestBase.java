@@ -26,10 +26,10 @@ public class TestBase  {
         caps.setCapability("appActivity", "com.example.cc14.smartcarrent.SplashScreenActivity");
         caps.setCapability("app","/home/hp/Desktop/SmartApp/app/release/app-release.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    @AfterTest
+  /*  @AfterTest
     public void quitDriver() {
         driver.quit();
-    }
+    }*/
 }
