@@ -5,15 +5,17 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase  {
-    protected static AppiumDriver driver;
+    protected static AndroidDriver driver;
 
-    public AppiumDriver getDriver(){
+    public AndroidDriver getDriver(){
         return driver;
     }
     @BeforeTest
@@ -28,8 +30,8 @@ public class TestBase  {
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-  /*  @AfterTest
+    @AfterTest
     public void quitDriver() {
         driver.quit();
-    }*/
+    }
 }
