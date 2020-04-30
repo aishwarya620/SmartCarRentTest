@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage{
 
-    @AndroidFindBy(id = "com.example.cc14.smartcarrent:id/btnSignUp") public MobileElement signUp;
+    @AndroidFindBy(id = appPackage + ":id/btnSignUp") public MobileElement signUp;
     //public MobileElement signUp = (MobileElement) driver. findElement(By.id("com.example.cc14.smartcarrent:id/btnSignUp"));
-    @AndroidFindBy (id = "com.example.cc14.smartcarrent:id/btnSignIn") public MobileElement signIn;
+    @AndroidFindBy (id = appPackage + ":id/btnSignIn") public MobileElement signIn;
 
     public HomePage(AppiumDriver driver) {
         super(driver);
@@ -23,9 +23,6 @@ public class HomePage extends BasePage{
     }
     public LoginPage pressSignInButton(){
         signIn.click();
-        return new LoginPage();
-    }
-    public void sendKeys(MobileElement element, String txt){
-        element.sendKeys(txt);
+        return new LoginPage(driver);
     }
 }

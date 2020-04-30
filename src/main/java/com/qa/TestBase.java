@@ -26,7 +26,7 @@ public class TestBase  {
         caps.setCapability("platformVersion", "9.0");
         caps.setCapability("appPackage", "com.example.cc14.smartcarrent");
         caps.setCapability("appActivity", "com.example.cc14.smartcarrent.SplashScreenActivity");
-        caps.setCapability("app","/home/hp/Desktop/SmartApp/app/release/app-release.apk");
+        caps.setCapability("app","/home/hp/Desktop/main contents/SmartCarRentNew/app/release/app-release.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }

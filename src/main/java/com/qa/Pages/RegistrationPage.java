@@ -9,20 +9,20 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationPage extends BasePage{
 
-    @AndroidFindBy(id = "appActivity:id/etName") public MobileElement name;
-    @AndroidFindBy (id = "appActivity:id/etEmail_id") public MobileElement emailId;
-    @AndroidFindBy (id = "appActivity:id/etPhone_no") public MobileElement phone_No;
-    @AndroidFindBy (id = "appActivity:id/et_Password") public MobileElement password;
-    @AndroidFindBy (id = "appActivity:id/etCpassword") public MobileElement confirmPassword;
-    @AndroidFindBy (id = "appActivity:id/etCity") public MobileElement city;
-    @AndroidFindBy (id = "appActivity:id/etPincode") public MobileElement pinCode;
-    @AndroidFindBy (id = "appActivity:id/etWallet") public MobileElement wallet;
-    @AndroidFindBy (id ="appActivity:id/radioMale") public MobileElement radioMale;
-    @AndroidFindBy (id ="appActivity:id/radioFemale") public MobileElement radioFemale;
-    @AndroidFindBy (id = "appActivity:id/etLicenceNo") public MobileElement licenceNo;
-    @AndroidFindBy (id ="appActivity:id/radioUser") public  MobileElement radioTypeUser;
-    @AndroidFindBy (id ="appActivity:id/radioOwner") public MobileElement radioTypeOwner;
-    @AndroidFindBy (id = "appActivity:id/btnSubmit") public MobileElement submit;
+    @AndroidFindBy (id = appPackage + ":id/etName") public MobileElement name;
+    @AndroidFindBy (id = appPackage + ":id/etEmail_id") public MobileElement emailId;
+    @AndroidFindBy (id = appPackage + ":id/etPhone_no") public MobileElement phone_No;
+    @AndroidFindBy (id = appPackage + ":id/et_Password") public MobileElement password;
+    @AndroidFindBy (id = appPackage + ":id/etCpassword") public MobileElement confirmPassword;
+    @AndroidFindBy (id = appPackage + ":id/etCity") public MobileElement city;
+    @AndroidFindBy (id = appPackage + ":id/etPincode") public MobileElement pinCode;
+    @AndroidFindBy (id = appPackage + ":id/etWallet") public MobileElement wallet;
+    @AndroidFindBy (id = appPackage + ":id/radioMale") public MobileElement radioMale;
+    @AndroidFindBy (id = appPackage + ":id/radioFemale") public MobileElement radioFemale;
+    @AndroidFindBy (id = appPackage + ":id/etLicenceNo") public MobileElement licenceNo;
+    @AndroidFindBy (id = appPackage + ":id/radioUser") public  MobileElement radioTypeUser;
+    @AndroidFindBy (id = appPackage + ":id/radioOwner") public MobileElement radioTypeOwner;
+    @AndroidFindBy (id = appPackage + ":id/btnSubmit") public MobileElement submit;
 
     public RegistrationPage(AppiumDriver driver){
         super(driver);

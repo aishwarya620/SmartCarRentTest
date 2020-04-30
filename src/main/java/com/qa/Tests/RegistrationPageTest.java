@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class RegistrationPageTest extends TestBase {
-    /*
+
     @BeforeTest
     public void setUp() {
         driver=getDriver();
@@ -21,5 +21,5 @@ public class RegistrationPageTest extends TestBase {
        // registrationPage = new RegistrationPage(driver);
         registrationPage.randomData();
         registrationPage.submit.click();
-    }*/
+    }
 }
