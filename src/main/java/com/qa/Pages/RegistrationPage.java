@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.*;
+
 public class RegistrationPage extends BasePage{
 
     @AndroidFindBy (id = appPackage + ":id/etName") public MobileElement name;
@@ -28,6 +30,7 @@ public class RegistrationPage extends BasePage{
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
+
     public void sendKeys(MobileElement element, String txt){
         element.sendKeys(txt);
     }

@@ -1,20 +1,16 @@
-package com.qa.Pages;
-
-import io.appium.java_client.AppiumDriver;
+package com.qa.Common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class BasePage {
-    protected static AppiumDriver driver;
-    public final String appPackage = "com.example.cc14.smartcarrent";
+public class DBConnectionManager {
 
-    public BasePage(AppiumDriver driver) {
-        this.driver = driver;
+    public static void main(String [] args){
+       get_Connection();
     }
-   /*
+
     public static Connection get_Connection() {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://127.0.0.1:3306/smartcarrent";
@@ -26,14 +22,14 @@ public class BasePage {
             Statement st = connection.createStatement();
             String query = "select * from tbl_users";
             ResultSet rs = st.executeQuery(query);
-            while (rs.next()){
+           /* while (rs.next()){
                 String name = rs.getString("email");
                 System.out.println("name"+name);
-            }
+            }*/
             return connection;
         } catch (Exception e) {
             System.out.println(e);
         }
         return null;
-    }*/
+    }
 }
