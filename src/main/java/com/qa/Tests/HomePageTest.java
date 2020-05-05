@@ -13,18 +13,14 @@ public class HomePageTest extends TestBase {
     LoginPage loginPage;
     HomePage homePage;
 
-    @BeforeTest
-    public void setUp() {
-        driver=getDriver();
-    }
     @Test
-    public void shouldClickOnSignUpButton() {
-        homePage = new HomePage(driver);
+    public void shouldClickOnSignUpButton() throws Exception {
+        homePage = new HomePage(getDriver(),get_Connection());
         registrationPage = homePage.pressSignUpButton();
     }
     @Test
-    public void shouldClickOnSignInButton() {
-        homePage = new HomePage(driver);
+    public void shouldClickOnSignInButton() throws Exception {
+        homePage = new HomePage(getDriver(),get_Connection());
         loginPage = homePage.pressSignInButton();
     }
 }

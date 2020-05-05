@@ -10,16 +10,29 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class TestBase  {
-    protected static AndroidDriver driver;
+    protected AndroidDriver driver;
 
-    public AndroidDriver getDriver(){
-        return driver;
+    @BeforeTest
+    public Connection get_Connection() {
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://127.0.0.1:3306/smartcarrent";
+        String userName = "root";
+        String password = "aishu65203";
+        try {
+            Class.forName(driver);
+            Connection connection = DriverManager.getConnection(url, userName, password);
+            return connection;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
     @BeforeTest
-    public void setup() throws Exception {
+    public AndroidDriver getDriver() throws Exception {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("deviceName", "RZ8M7442VWR");
         caps.setCapability("platformName", "Android");
@@ -28,7 +41,7 @@ public class TestBase  {
         caps.setCapability("appActivity", "com.example.cc14.smartcarrent.SplashScreenActivity");
         caps.setCapability("app","/home/hp/Desktop/main contents/SmartCarRentNew/app/release/app-release.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
     }
     @AfterTest
     public void quitDriver() {

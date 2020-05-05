@@ -8,18 +8,12 @@ import org.testng.annotations.Test;
 
 public class RegistrationPageTest extends TestBase {
 
-    @BeforeTest
-    public void setUp() {
-        driver=getDriver();
-    }
-
     @Test
-    public void shouldRegisteredSuccessfully() {
-        HomePage homePage = new HomePage(driver);
+    public void shouldRegisteredSuccessfully() throws Exception {
+        HomePage homePage = new HomePage(getDriver(),get_Connection());
         RegistrationPage registrationPage;
         registrationPage = homePage.pressSignUpButton();
-       // registrationPage = new RegistrationPage(driver);
-        registrationPage.randomData();
-        registrationPage.submit.click();
+        registrationPage.actionPerformed();
+       // registrationPage.submit.click();
     }
 }

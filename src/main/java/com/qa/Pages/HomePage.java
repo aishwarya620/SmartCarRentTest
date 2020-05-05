@@ -7,22 +7,23 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.Connection;
+
 public class HomePage extends BasePage{
 
     @AndroidFindBy(id = appPackage + ":id/btnSignUp") public MobileElement signUp;
-    //public MobileElement signUp = (MobileElement) driver. findElement(By.id("com.example.cc14.smartcarrent:id/btnSignUp"));
     @AndroidFindBy (id = appPackage + ":id/btnSignIn") public MobileElement signIn;
 
-    public HomePage(AppiumDriver driver) {
-        super(driver);
+    public HomePage(AppiumDriver driver, Connection connection) {
+        super(driver,connection);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
     public RegistrationPage pressSignUpButton(){
         signUp.click();
-        return new RegistrationPage(driver);
+        return new RegistrationPage(driver,connection);
     }
     public LoginPage pressSignInButton(){
         signIn.click();
-        return new LoginPage(driver);
+        return new LoginPage(driver,connection);
     }
 }
