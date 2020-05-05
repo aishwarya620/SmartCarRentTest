@@ -1,5 +1,6 @@
 package com.qa.Pages;
 
+import com.qa.Common.DataFactory;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -27,28 +28,31 @@ public class LoginPage extends BasePage{
         sendKeys(password,password1);
         return this;
     }
-    public OwnerPage actionPerformed() throws SQLException {
-        Statement st = connection.createStatement();
-        String query = "select * from tbl_users where userid = 3";
+    DataFactory dataFactory;
+    public OwnerPage loginAsOwner(int userid) throws Exception {
+       /* Statement st = connection.createStatement();
+        String query = "select * from tbl_users where userid = " + userid;
         ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
+        while(rs.next()) {
             String mobile = rs.getString("mobile");
             String password = rs.getString("password");
             enterMobile(mobile);
             enterPassword(password);
-        }
+        }*/
+        dataFactory.getDataFromDb(userid);
         return new OwnerPage();
     }
-    public UserPage actionPerformed1() throws SQLException {
-        Statement st = connection.createStatement();
-        String query = "select * from tbl_users where userid = 2";
+    public UserPage loginAsUser(int userid) throws Exception {
+        /*Statement st = connection.createStatement();
+        String query = "select * from tbl_users where userid = " + userid;
         ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
+        while(rs.next()) {
             String mobile = rs.getString("mobile");
             String password = rs.getString("password");
             enterMobile(mobile);
             enterPassword(password);
-        }
+        }*/
+        dataFactory.getDataFromDb(userid);
         return new UserPage();
     }
 }

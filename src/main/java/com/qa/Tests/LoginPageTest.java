@@ -13,13 +13,13 @@ public class LoginPageTest extends TestBase {
         HomePage homePage = new HomePage(getDriver(),get_Connection());
         LoginPage loginPage;
         loginPage = homePage.pressSignInButton();
-        loginPage.actionPerformed();
+        loginPage.loginAsOwner(2);
     }
     @Test
     public void shouldLoginSuccessfullyAsUser() throws Exception {
         HomePage homePage = new HomePage(getDriver(),get_Connection());
         LoginPage loginPage;
         loginPage = homePage.pressSignInButton();
-        loginPage.actionPerformed1();
+        loginPage.loginAsUser(3);
     }
 }

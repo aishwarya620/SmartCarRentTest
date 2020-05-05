@@ -13,6 +13,7 @@ public class HomePageTest extends TestBase {
     LoginPage loginPage;
     HomePage homePage;
 
+
     @Test
     public void shouldClickOnSignUpButton() throws Exception {
         homePage = new HomePage(getDriver(),get_Connection());

@@ -1,17 +1,17 @@
 package com.qa.Pages;
 
+import com.qa.Common.RandomData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.support.PageFactory;
 
 import java.sql.*;
 
 public class RegistrationPage extends BasePage{
 
-    @AndroidFindBy (id = appPackage + ":id/etName") public String name;
+    @AndroidFindBy (id = appPackage + ":id/etName") public MobileElement name;
     @AndroidFindBy (id = appPackage + ":id/etEmail_id") public MobileElement emailId;
     @AndroidFindBy (id = appPackage + ":id/etPhone_no") public MobileElement phone_No;
     @AndroidFindBy (id = appPackage + ":id/et_Password") public MobileElement password;
@@ -30,22 +30,63 @@ public class RegistrationPage extends BasePage{
         super(driver,connection);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
-    public OwnerPage actionPerformed() throws SQLException {
-        Statement st = connection.createStatement();
-        String query = "insert into tbl_users values()";
-        ResultSet rs = st.executeQuery(query);
-        while (rs.next()) {
-            /*
-            String mobile = rs.getString("mobile");
-            String password = rs.getString("password");
-            enterMobile(mobile);
-            enterPassword(password);
-            */
-             name = rs.getString("name");
-        }
-        return new OwnerPage();
+
+    public void sendKeys(MobileElement element, String txt){
+        element.sendKeys(txt);
     }
-
-
-
+    public RegistrationPage enterName(String name1){
+        sendKeys(name,name1);
+        return this;
+    }
+    public RegistrationPage enterEmailId(String emailId1){
+        sendKeys(emailId,emailId1);
+        return this;
+    }
+    public RegistrationPage enterPhoneNo(String phoneNo1){
+        sendKeys(phone_No,phoneNo1);
+        return this;
+    }
+    public RegistrationPage enterPassword(String password1){
+        sendKeys(password,password1);
+        return this;
+    }
+    public RegistrationPage enterConfirmPassword(String password1){
+        sendKeys(confirmPassword,password1);
+        return this;
+    }
+    public RegistrationPage enterCity(String city1) {
+        sendKeys(city,city1);
+        return this;
+    }
+    public RegistrationPage enterPinCode(String pincode1){
+        sendKeys(pinCode,pincode1);
+        return this;
+    }
+    public RegistrationPage enterWalletBalance(String walletBalance1){
+        sendKeys(wallet,walletBalance1);
+        return this;
+    }
+    public RegistrationPage enterLicenceNo(String licenceNo1){
+        sendKeys(licenceNo,licenceNo1);
+        return this;
+    }
+    public void randomData()  {
+        enterName(RandomData.firstName);
+        enterEmailId(RandomData.email1);
+        enterPhoneNo(RandomData.phoneNo1);
+        enterPassword(RandomData.password1);
+        enterConfirmPassword(RandomData.password1);
+        enterCity(RandomData.city1);
+        enterPinCode(RandomData.pinCode1);
+        enterWalletBalance(RandomData.walletBalance1);
+        if(RandomData.num == 0)
+            radioMale.click();
+        else
+            radioFemale.click();
+        enterLicenceNo(RandomData.licenceNo1);
+        if(RandomData.num1 == 0)
+            radioTypeUser.click();
+        else
+            radioTypeOwner.click();
+    }
 }

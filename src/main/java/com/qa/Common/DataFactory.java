@@ -1,11 +1,27 @@
 package com.qa.Common;
 
-import com.qa.Pages.RegistrationPage;
-import io.appium.java_client.MobileElement;
+import com.qa.Pages.LoginPage;
+import com.qa.TestBase;
 import org.apache.commons.lang.RandomStringUtils;
 
-public class DataFactory {
-    public MobileElement name;
+import java.sql.*;
+
+public class DataFactory extends TestBase {
+    public void getDataFromDb(int id) throws Exception {
+        Statement st = get_Connection().createStatement();
+            String query = "select * from tbl_users where userid = " + id;
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                String mobile = rs.getString("mobile");
+                String password1 = rs.getString("password");
+                LoginPage loginPage = new LoginPage(getDriver(),get_Connection());
+                loginPage.enterMobile(mobile);
+                loginPage.enterPassword(password1);
+            }
+    }
+
+}
+    /*public MobileElement name;
     public MobileElement emailId;
     public MobileElement phone_No;
     public MobileElement password;
@@ -88,5 +104,4 @@ public class DataFactory {
     }
     public void enterLicenceNo(String licenceNo1){
         sendKeys(licenceNo,licenceNo1);
-    }
-}
+    }*/
