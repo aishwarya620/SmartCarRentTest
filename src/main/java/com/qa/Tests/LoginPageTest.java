@@ -1,8 +1,6 @@
 package com.qa.Tests;
 
-import com.qa.Pages.HomePage;
-import com.qa.Pages.LoginPage;
-import com.qa.Pages.RegistrationPage;
+import com.qa.Pages.*;
 import com.qa.TestBase;
 import org.testng.annotations.Test;
 
@@ -10,16 +8,20 @@ public class LoginPageTest extends TestBase {
 
     @Test
     public void shouldLoginSuccessfullyAsOwner() throws Exception {
-        HomePage homePage = new HomePage(getDriver(),get_Connection());
+       // HomePage homePage = new HomePage(getDriver(),get_Connection());
+        HomePage homePage = new HomePage(getDriver());
         LoginPage loginPage;
         loginPage = homePage.pressSignInButton();
-        loginPage.loginAsOwner(2);
+        OwnerPage ownerPage;
+        ownerPage = loginPage.loginAsOwner(3);
     }
     @Test
     public void shouldLoginSuccessfullyAsUser() throws Exception {
-        HomePage homePage = new HomePage(getDriver(),get_Connection());
+       // HomePage homePage = new HomePage(getDriver(),get_Connection());
+        HomePage homePage = new HomePage(getDriver());
         LoginPage loginPage;
         loginPage = homePage.pressSignInButton();
-        loginPage.loginAsUser(3);
+        UserPage userPage;
+        userPage = loginPage.loginAsUser(2);
     }
 }

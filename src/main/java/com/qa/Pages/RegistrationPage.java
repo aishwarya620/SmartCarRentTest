@@ -26,8 +26,8 @@ public class RegistrationPage extends BasePage{
     @AndroidFindBy (id = appPackage + ":id/radioOwner") public MobileElement radioTypeOwner;
     @AndroidFindBy (id = appPackage + ":id/btnSubmit") public MobileElement submit;
 
-    public RegistrationPage(AppiumDriver driver,Connection connection){
-        super(driver,connection);
+    public RegistrationPage(AppiumDriver driver){
+        super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
 
@@ -88,5 +88,6 @@ public class RegistrationPage extends BasePage{
             radioTypeUser.click();
         else
             radioTypeOwner.click();
+        submit.click();
     }
 }

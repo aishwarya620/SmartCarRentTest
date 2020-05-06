@@ -14,16 +14,16 @@ public class HomePage extends BasePage{
     @AndroidFindBy(id = appPackage + ":id/btnSignUp") public MobileElement signUp;
     @AndroidFindBy (id = appPackage + ":id/btnSignIn") public MobileElement signIn;
 
-    public HomePage(AppiumDriver driver, Connection connection) {
-        super(driver,connection);
+    public HomePage(AppiumDriver driver) {
+        super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
     public RegistrationPage pressSignUpButton(){
         signUp.click();
-        return new RegistrationPage(driver,connection);
+        return new RegistrationPage(driver);
     }
     public LoginPage pressSignInButton(){
         signIn.click();
-        return new LoginPage(driver,connection);
+        return new LoginPage(driver);
     }
 }

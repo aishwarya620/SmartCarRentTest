@@ -16,7 +16,7 @@ import java.sql.DriverManager;
 public class TestBase  {
     protected AndroidDriver driver;
 
-    @BeforeTest
+   /* @BeforeTest
     public Connection get_Connection() {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://127.0.0.1:3306/smartcarrent";
@@ -30,7 +30,7 @@ public class TestBase  {
             System.out.println(e);
         }
         return null;
-    }
+    }*/
     @BeforeTest
     public AndroidDriver getDriver() throws Exception {
         DesiredCapabilities caps = new DesiredCapabilities();
