@@ -19,6 +19,8 @@ public class User {
          int num1 = (int) (Math.random() * (max1 - min1 + 1) + min1);
 
         return new UserData()
+
+
                 .setName(firstName)
                 .setEmailId(email1)
                 .setPhone_No(phoneNo1)

@@ -1,6 +1,5 @@
 package com.qa.Pages;
 
-import com.qa.Common.RandomData;
 import com.qa.Common.UserData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

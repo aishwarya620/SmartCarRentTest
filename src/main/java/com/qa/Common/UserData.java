@@ -17,20 +17,6 @@ public class UserData {
 
     }
 
-    public UserData(UserData newUser){
-        this.name  = newUser.name;
-        this.emailId = newUser.emailId;
-        this.phone_No = newUser.phone_No;
-        this.password = newUser.password;
-        this.confirmPassword = newUser.confirmPassword;
-        this.city = newUser.city;
-        this.pinCode = newUser.pinCode;
-        this.wallet = newUser.wallet;
-        this.licenceNo = newUser.licenceNo;
-        this.gender = newUser.gender;
-        this.userType= newUser.userType;
-    }
-
     public String getName() {
         return name;
     }
