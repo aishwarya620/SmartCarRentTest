@@ -12,5 +12,4 @@ public class BasePage {
         this.driver = driver;
         //this.connection = connection;
     }
-
 }

@@ -4,10 +4,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import java.sql.Connection;
+import java.sql.SQLException;
 
 public class HomePage extends BasePage{
 
@@ -22,7 +21,7 @@ public class HomePage extends BasePage{
         signUp.click();
         return new RegistrationPage(driver);
     }
-    public LoginPage pressSignInButton(){
+    public LoginPage pressSignInButton() throws SQLException {
         signIn.click();
         return new LoginPage(driver);
     }

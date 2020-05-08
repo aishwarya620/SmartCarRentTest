@@ -1,5 +1,7 @@
 package com.qa.Tests;
 
+import com.qa.Common.User;
+import com.qa.Common.UserData;
 import com.qa.Pages.HomePage;
 import com.qa.Pages.RegistrationPage;
 import com.qa.TestBase;
@@ -13,6 +15,7 @@ public class RegistrationPageTest extends TestBase {
         HomePage homePage = new HomePage(getDriver());
         RegistrationPage registrationPage;
         registrationPage = homePage.pressSignUpButton();
-        registrationPage.randomData();
+        UserData userData = User.randomData();
+        registrationPage.fillRegistrationPage(userData);
     }
 }
