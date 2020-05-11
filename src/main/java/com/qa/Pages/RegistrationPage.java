@@ -1,11 +1,14 @@
 package com.qa.Pages;
 
+import com.qa.Common.FetchTestData;
 import com.qa.Common.UserData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
+
+import java.sql.SQLException;
 
 public class RegistrationPage extends BasePage{
 
@@ -19,16 +22,18 @@ public class RegistrationPage extends BasePage{
     @AndroidFindBy (id = appPackage + ":id/etWallet") public MobileElement wallet;
     @AndroidFindBy (id = appPackage + ":id/radioMale") public MobileElement radioMale;
     @AndroidFindBy (id = appPackage + ":id/radioFemale") public MobileElement radioFemale;
+    @AndroidFindBy (id = appPackage + ":id/radioSex") public MobileElement radioSex;
     @AndroidFindBy (id = appPackage + ":id/etLicenceNo") public MobileElement licenceNo;
     @AndroidFindBy (id = appPackage + ":id/radioUser") public  MobileElement radioTypeUser;
     @AndroidFindBy (id = appPackage + ":id/radioOwner") public MobileElement radioTypeOwner;
+    @AndroidFindBy (id = appPackage + ":id/radioUserType") public MobileElement radioUserType;
     @AndroidFindBy (id = appPackage + ":id/btnSubmit") public MobileElement submit;
 
     public RegistrationPage(AppiumDriver driver){
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);//trying to initialise the UiElements
     }
-    public RegistrationPage fillRegistrationPage(UserData userData){
+    public RegistrationPage fillRegistrationPage(UserData userData) throws SQLException {
         enterName(userData.getName());
         enterEmailId(userData.getEmailId());
         enterPhoneNo(userData.getPhone_No());
@@ -38,7 +43,20 @@ public class RegistrationPage extends BasePage{
         enterPinCode(userData.getPinCode());
         enterWalletBalance(userData.getWallet());
 
-        //submit.click();
+        if(userData.getGender() == 0)
+            radioMale.click();
+        else
+            radioFemale.click();
+        enterLicenceNo(userData.getLicenceNo());
+
+        if(userData.getUserType() == 0)
+            radioTypeUser.click();
+        else
+            radioTypeOwner.click();
+
+        submit.click();
+        //FetchTestData fetchTestData = new FetchTestData();
+        //fetchTestData.insertUser(name,emailId,phone_No,password,city,pinCode,licenceNo);
         return this;
     }
     public void sendKeys(MobileElement element, String txt){
@@ -80,26 +98,4 @@ public class RegistrationPage extends BasePage{
         sendKeys(licenceNo,licenceNo1);
         return this;
     }
-    /*
-    public void randomData()  {
-        enterName(RandomData.firstName);
-        enterEmailId(RandomData.email1);
-        enterPhoneNo(RandomData.phoneNo1);
-        enterPassword(RandomData.password1);
-        enterConfirmPassword(RandomData.password1);
-        enterCity(RandomData.city1);
-        enterPinCode(RandomData.pinCode1);
-        enterWalletBalance(RandomData.walletBalance1);
-        if(RandomData.num == 0)
-            radioMale.click();
-        else
-            radioFemale.click();
-        enterLicenceNo(RandomData.licenceNo1);
-        if(RandomData.num1 == 0)
-            radioTypeUser.click();
-        else
-            radioTypeOwner.click();
-        submit.click();
-
-    }*/
 }

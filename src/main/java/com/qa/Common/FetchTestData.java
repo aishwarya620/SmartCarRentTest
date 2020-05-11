@@ -1,8 +1,8 @@
 package com.qa.Common;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import io.appium.java_client.MobileElement;
+
+import java.sql.*;
 
 public class FetchTestData implements MobilenoAndPassword{
 
@@ -35,4 +35,31 @@ public class FetchTestData implements MobilenoAndPassword{
             }
         }
     }
+    /*
+    UserData userData ;
+     public void insertUser(MobileElement name, MobileElement emailId, MobileElement phone_No, MobileElement password, MobileElement city, MobileElement pinCode, MobileElement licenseNo) throws SQLException {
+        String sql = "insert into tbl_users(name, emailId, phone_no, password, city, pinCode, licenceNo, userType) values(?,?,?,?,?,?,?,'user')";
+         PreparedStatement ps = dataBaseConnection.get_Connection().prepareStatement(sql);
+
+         /*name = userData.getName();
+         emailId = userData.getEmailId();
+         phone_No = userData.getPhone_No();
+         password = userData.getPassword();
+         city = userData.getCity();
+         pinCode = userData.getPinCode();
+         licenseNo  = userData.getLicenceNo();
+         userType = userData.getUserType();
+
+         ps.setString(1, String.valueOf(name));
+         ps.setString(2, String.valueOf(emailId));
+         ps.setString(3, String.valueOf(phone_No));
+         ps.setString(4, String.valueOf(password));
+         ps.setString(5, String.valueOf(city));
+         ps.setString(6, String.valueOf(pinCode));
+         ps.setString(7, String.valueOf(licenseNo));
+         //ps.setString(8, 'user');
+
+        ps.executeUpdate(sql);
+
+    }*/
 }

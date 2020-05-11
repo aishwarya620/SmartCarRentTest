@@ -5,9 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-
 import java.sql.SQLException;
 
 public class LoginPage extends BasePage{
@@ -15,6 +13,7 @@ public class LoginPage extends BasePage{
     FetchTestData fetchTestData = new FetchTestData();
     @AndroidFindBy(id = appPackage + ":id/edtMobile") public MobileElement mobileNumber;
     @AndroidFindBy(id = appPackage + ":id/etPassword") public MobileElement password;
+    @AndroidFindBy(id = appPackage + ":id/btnSignIn") public MobileElement submit;
 
     public LoginPage(AppiumDriver driver) throws SQLException {
         super(driver);
@@ -35,12 +34,14 @@ public class LoginPage extends BasePage{
         fetchTestData.findUser(userid);
         enterMobile(fetchTestData.getMobileNO());
         enterPassword(fetchTestData.getPassword());
+        submit.click();
         return new OwnerPage(driver);
     }
     public UserPage loginAsUser(int userid) throws SQLException {
         fetchTestData.findUser(userid);
         enterMobile(fetchTestData.getMobileNO());
         enterPassword(fetchTestData.getPassword());
+        submit.click();
         return new UserPage();
     }
 }
