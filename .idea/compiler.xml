@@ -9,5 +9,8 @@
         <module name="SmartCarRentTest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SmartCarRentTest" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -35,20 +35,19 @@ public class FetchTestData implements MobilenoAndPassword{
             }
         }
     }
-    /*
+   /*
     UserData userData ;
      public void insertUser(MobileElement name, MobileElement emailId, MobileElement phone_No, MobileElement password, MobileElement city, MobileElement pinCode, MobileElement licenseNo) throws SQLException {
         String sql = "insert into tbl_users(name, emailId, phone_no, password, city, pinCode, licenceNo, userType) values(?,?,?,?,?,?,?,'user')";
          PreparedStatement ps = dataBaseConnection.get_Connection().prepareStatement(sql);
 
-         /*name = userData.getName();
+         name = userData.getName();
          emailId = userData.getEmailId();
          phone_No = userData.getPhone_No();
          password = userData.getPassword();
          city = userData.getCity();
          pinCode = userData.getPinCode();
          licenseNo  = userData.getLicenceNo();
-         userType = userData.getUserType();
 
          ps.setString(1, String.valueOf(name));
          ps.setString(2, String.valueOf(emailId));
