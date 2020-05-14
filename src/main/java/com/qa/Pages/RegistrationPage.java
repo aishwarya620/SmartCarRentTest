@@ -55,8 +55,7 @@ public class RegistrationPage extends BasePage{
             radioTypeOwner.click();
 
         submit.click();
-        //FetchTestData fetchTestData = new FetchTestData();
-        //fetchTestData.insertUser(name,emailId,phone_No,password,city,pinCode,licenceNo);
+
         return this;
     }
     public void sendKeys(MobileElement element, String txt){

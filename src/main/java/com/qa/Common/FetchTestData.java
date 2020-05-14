@@ -1,7 +1,5 @@
 package com.qa.Common;
 
-import io.appium.java_client.MobileElement;
-
 import java.sql.*;
 
 public class FetchTestData implements MobilenoAndPassword{
